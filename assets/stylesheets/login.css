@@ -1,0 +1,59 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	text-align: center;
+	font-family: arial;
+	padding: 20px;
+}
+ 
+h2{
+	margin-bottom: 10px;
+}
+.input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left:20px;
+    height: 20px;
+    width: 200px;
+}
+label {
+    float: left;
+    padding-top: 5px;
+    text-align: left;
+    margin-left: 80px;
+ 
+}
+form{
+	margin-top: 10px;
+}
+#login_button{
+	width: 50px;
+	height: 25px;
+	float: right;
+	margin-right: 50px;
+	margin-top: 5px;
+}
+#registration{
+	margin-left: 50px;
+	display: inline-block;
+	width: 30%;
+}
+ul{
+	margin-top: 20px;
+    list-style-type: circle;
+     list-style-position: inside;
+}
+li{
+	text-align: left;
+}
+p{
+	text-align: left;
+}
+#create_button{
+	width: 150px;
+	height: 25px;
+}
+
+

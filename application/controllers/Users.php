@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Users extends CI_Controller{
 	public function index()
 	{
-		$this->load->view('users_index');
+		$this->load->view('registration');
 	}
 }
 

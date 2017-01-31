@@ -1,0 +1,33 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	text-align: center;
+	font-family: arial;
+	padding: 20px;
+}
+#login{
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+}
+form{
+	margin-top: 10px;
+}
+.input {
+	margin: 5px 0px 5px 20px;
+    height: 20px;
+    width: 200px;
+}
+label {
+    float: left;
+    padding-top: 5px;
+    text-align: left;
+    margin-left: 50px;
+}
+#create_button{
+	width: 150px;
+	height: 25px;
+	margin: 10px 0px 10px 20px;
+}
