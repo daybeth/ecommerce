@@ -79,6 +79,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => 'root',
 	'database' => 'ecommerce',
+	'port'     => '8889',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
