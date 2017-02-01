@@ -24,7 +24,7 @@ class User extends CI_Model {
 			$salt = $salt = bin2hex(openssl_random_pseudo_bytes(22));
 			$encpass = md5($post["password"]. "codingdojo" .$salt);
 			$query = "INSERT INTO users (first_name, last_name, email, password, salt) VALUES (?, ?, ?, ?, ?)";
-			$values = array($post["first_name"], $post["last_name"], $post["email"], $salt, $encpass);
+			$values = array($post["first_name"], $post["last_name"], $post["email"], $encpass, $salt);
 			return $this->db->query($query, $values);
 	}	
 	public function get_user_by_email($email)
@@ -54,5 +54,24 @@ class User extends CI_Model {
 			$fail = "Invalid Email or Password";
 			return $fail;
 		}
+	}
+	public function admincheck($post)
+	{
+		$user = $this->get_user_by_email($post["email"]);
+		$postpassword = $this->input->post("password");
+		$salt = $user["salt"];
+		$testpassword = md5($postpassword. "codingdojo" .$salt);
+		if($testpassword == $user["password"] && $user["id"] == 1)
+		{
+			$success = array(
+							"id" =>$user["id"],
+							"is_logged_in" => TRUE);
+			return $success;
+		}
+		else
+		{
+			$fail = "Access Denied";
+			return $fail;
+		}				
 	}
 }

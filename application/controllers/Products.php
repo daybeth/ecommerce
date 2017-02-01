@@ -6,4 +6,13 @@ class Products extends CI_Controller {
 	{
 		$this->load->view("main");
 	}
+	public function edit_product($id)
+	{
+		$this->load->view('edit_product');
+	}
+	// public function delete_product($id){
+	// 	$this->load->model("Product");
+	// 	$this->Product->delete_product($id);
+	// 	redirect('/users/admin_products');
+	// }
 }
