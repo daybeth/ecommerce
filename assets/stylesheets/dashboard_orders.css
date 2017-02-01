@@ -1,0 +1,32 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: arial;
+	padding: 20px;
+}
+table{
+	margin: 20px 0 50px;
+	border-collapse: collapse;
+}
+th,td{
+	border: 1px solid black;
+}
+#column1{
+	width: 300px;
+}
+#column2{
+	width: 200px;
+}
+#column3{
+	text-align: center;
+}
+.column{
+	width: 0px;
+}.selected{
+	display: none;
+}
+#status{
+	margin-left: 570px;
+}

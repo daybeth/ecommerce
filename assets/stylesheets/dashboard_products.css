@@ -1,0 +1,36 @@
+
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: arial;
+	padding: 20px;
+}
+#add_button{
+	width: 150px;
+	height: 25px;
+	margin-left: 650px;
+}
+table{
+	margin: 20px 0 50px;
+	border-collapse: collapse;
+}
+th,td{
+	border: 1px solid black;
+}
+#column1{
+	width: 150px;
+}
+#column2{
+	width: 30px;
+}
+#column3{
+	width: 200px;
+}
+.column4{
+	width: 150px;
+}
+#column5{
+	text-align: center;
+}
