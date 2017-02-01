@@ -16,7 +16,7 @@ class User extends CI_Model {
 		}
 		else
 		{
-			return validation_errors();
+			return validation_errors(); 
 		}		
 	}
 	public function register($post)
