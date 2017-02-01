@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: arial;
+    padding: 20px;
+    width: 70%;
+}
+#nav_bar{
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    padding: 10px;
+    border:1px solid black;
+}
+#main_content{
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+    padding: 10px;
+    border:1px solid black;
+}
