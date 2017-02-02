@@ -6,6 +6,7 @@ class Product extends CI_Model {
 	{
 		$query = "SELECT * FROM products";
 		return $this->db->query($query)->result_array();
+		
 	}
 
 	public function get_product_by_id($id)
@@ -22,7 +23,7 @@ class Product extends CI_Model {
 	}
 	public function get_all_products_by_category($id)
 	{
-		$query = "SELECT * FROM products JOIN products_has_categories ON products.id = products_has_categories.product_id WHERE products_has_categories.category_id = ?"
+		$query = "SELECT * FROM products JOIN products_has_categories ON products.id = products_has_categories.product_id WHERE products_has_categories.category_id = ?";
 		$values = array($id);
 		return $this->db->query($query, $values)->result_array();
 	}
@@ -52,5 +53,12 @@ class Product extends CI_Model {
 		$values=array($id);
 		return $this->db->query($query,$values);
 	}
-
+	//*********QUERY FOR PAGINATION-DAY**********
+	public function get_page($num)
+	{
+		$offset =($num-1)*3;
+		$query = "SELECT * FROM products LIMIT 3 OFFSET ". $offset;
+		return $this->db->query($query)->result_array();
+	}
+	//*********END OF QUERY FOR PAGINATION-DAY**********
 }

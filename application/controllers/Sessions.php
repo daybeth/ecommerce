@@ -5,7 +5,7 @@ class Sessions extends CI_Controller{
 	
 	public function index()
 	{
-		$this->load->view("main");
+		$this->load->view("dashboard_products_test");
 	}
 }
 

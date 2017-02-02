@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/assets/stylesheets/login.css">
 	<title>Document</title>
+	<link rel="stylesheet" href="/assets/stylesheets/login.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="assets/JS/js/jQuery-1.10.2.js"></script>
+<script type="text/javascript" src="assets/JS/js/bootstrap.js"></script>
 </head>
 <body>
 	<div id="login">
