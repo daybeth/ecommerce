@@ -8,6 +8,7 @@ class Users extends CI_Controller{
 		parent::__construct();
 		$this->load->model("User");
 		$this->load->model("Product");
+		$this->load->model("Order");
 	}
 
 	public function index()
@@ -60,12 +61,13 @@ class Users extends CI_Controller{
 		else
 		{
 			$this->session->set_userdata("Admin", $result);
-			redirect("/users/admin_order");
+			redirect("/users/admin_orders");
 		}
 	}
 	public function admin_orders()
 	{
-		$this->load->view("dashboard_orders");
+		$orders = $this->Order->get_all_orders();
+		$this->load->view("dashboard_orders", ["orders" => $orders]);
 	}
 	public function admin_products()
 	{

@@ -13,6 +13,21 @@ class Order extends CI_Model {
 		$this->db->query($query,$values);
 	}
 
-	public function
-
+	public function get_all_orders()
+	{
+		$query = "SELECT orders.id, total, orders.date, orders.billing_address, users.first_name, users.last_name, orders.status FROM orders JOIN users on users.id = orders.user_id";
+		return $this->db->query($query)->result_array();
+	}
+	public function get_order_by_id($id)
+	{
+		$query = "SELECT orders.id, orders.total, orders.date, orders.billing_address, orders.shipping_address, users.first_name, users.last_name, orders.status, orders.shipping_name, orders.billing_name FROM orders JOIN users ON orders.user_id = users.id WHERE orders.id = ?";
+		$values = array($id);
+		return $this->db->query($query, $values)->row_array();
+	}
+	public function get_order_qty($id)
+	{
+		$query = "SELECT * FROM orders_has_products JOIN products ON orders_has_products.product_id = products.id WHERE orders_has_products.order_id = ?";
+		$values = array($id);
+		return $this->db->query($query, $values)->result_array();
+	}
 }

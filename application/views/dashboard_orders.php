@@ -10,8 +10,9 @@
 		Missing search bar
 		<select name="status" id="status">
 			<option class="selected" selected="selected" value="0">Show All</option>
-			<option value="shipped">Shipped</option>
 			<option value="shipped">In Process</option>
+			<option value="shipped">Shipped</option>
+			<option value="shipped">Canceled</option>
 		</select>
 	</div>
 	<table>
@@ -24,17 +25,20 @@
 			<th id="column3">Status</th>
 		</thead>
 		<tbody>
+<?php
+			foreach ($orders as $order) {
+?>
 			<tr>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td><select name="status" id="status_table">
-					<option value="shipped">Shipped</option>
-					<option value="shipped">In Process</option>
-				</select></td>
+				<td><a href="/orders/show_order/<?= $order["id"] ?>"><?= $order["id"] ?></a></td>
+				<td><?= $order["first_name"]. " " .$order["last_name"] ?></td>
+				<td><?= $order["date"] ?></td>
+				<td><?= $order["billing_address"] ?></td>
+				<td>$<?= $order["total"] ?></td>
+				<td><?= strtoupper($order["status"]) ?></td>
 			</tr>
+<?php
+			  }  
+?>			
 		</tbody>
 	</table>
 	Missing pagination

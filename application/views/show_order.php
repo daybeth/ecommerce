@@ -7,13 +7,13 @@
 </head>
 <body>
 	<div id="left_info">
-		<h3>Order ID XXXX</h3>
+		<h3>Order ID <?= $order["id"] ?></h3>
 		<h4>Customer shipping info:</h4>
-		<p>Name: XXXXX</p>
-		<p>Address:XXXXXXXXX</p>
+		<p>Name: <?= $order["shipping_name"] ?></p>
+		<p>Address: <?= $order["shipping_address"] ?></p>
 		<h4>Customer billing info:</h4>
-		<p>Name: XXXXX</p>
-		<p>Address: XXXXXXXX</p>
+		<p>Name: <?= $order["billing_name"] ?></p>
+		<p>Address: <?= $order["billing_address"] ?></p>
 	</div>
 	<div id="right_info">
 		<table>
@@ -25,20 +25,24 @@
 				<th class="column">Total</th>
 			</thead>
 			<tbody>
-				<tr>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-				</tr>
+<?php  
+				foreach ($orderqty as $qty) {
+?>
+					<tr>
+						<td><?= $qty["Product_id"] ?></td>
+						<td><?= $qty["name"] ?></td>
+						<td>$<?= $qty["price"] ?></td>
+						<td><?= $qty["Product_quantity"] ?></td>
+						<td><?= $order["id"] ?></td>
+					</tr>
+<?php
+				}
+?>
 			</tbody>
 		</table>
-		<p id="status_box">Status: XXXXXXXX</p>
+		<p id="status_box">Status: <?= strtoupper($order["status"]) ?></p>
 		<div id="total_price">
-			<p>Sub total: XXXXXXXX</p>
-			<p>Shipping: XXXXXXXX</p>
-			<p>Total: XXXXXXXX</p>
+			<p>Total: $<?= $order["total"] ?></p>
 		</div>
 	</div>
 </body>
