@@ -5,29 +5,7 @@ class Sessions extends CI_Controller{
 	
 	public function index()
 	{
-		$this->load->view("dashboard_products_test");
+		$this->load->view("dashboard_orders");
 	}
 }
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -2,42 +2,36 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/assets/stylesheets/dashboard_orders.css">
-	<title>Document</title>
+		<title>Document</title>
+	<link rel="stylesheet" href="/assets/stylesheets/dashboard_orderss.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/pagination_dashboard_orders.js"></script>
+
 </head>
 <body>
 	<div id="search_bar">
 		Missing search bar
 		<select name="status" id="status">
 			<option class="selected" selected="selected" value="0">Show All</option>
-			<option value="shipped">Shipped</option>
 			<option value="shipped">In Process</option>
+			<option value="shipped">Shipped</option>
+			<option value="shipped">Canceled</option>
 		</select>
 	</div>
 	<table>
 		<thead>
 			<th class="column">Order ID</th>
-			<th id="column2">Name</th>
+			<th class="column2">Name</th>
 			<th class="column">Date</th>
-			<th id="column1">Shipping Address</th>
+			<th class="column1">Shipping Address</th>
 			<th class="column">Total</th>
-			<th id="column3">Status</th>
+			<th class="column3">Status</th>
 		</thead>
-		<tbody>
-			<tr>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td>XXXXXX</td>
-				<td><select name="status" id="status_table">
-					<option value="shipped">Shipped</option>
-					<option value="shipped">In Process</option>
-				</select></td>
-			</tr>
+		<tbody class="tbody">
+	
 		</tbody>
 	</table>
-	Missing pagination
+	<div class="pages"></div>
 </body>
 </html>
 

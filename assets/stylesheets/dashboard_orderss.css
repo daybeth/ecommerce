@@ -13,20 +13,25 @@ table{
 th,td{
 	border: 1px solid black;
 }
-#column1{
+.column1{
 	width: 300px;
 }
-#column2{
+.column2{
 	width: 200px;
 }
-#column3{
-	text-align: center;
+.column3{
+	width: 150px;
 }
 .column{
-	width: 0px;
-}.selected{
+	width: 80px;
+}
+.selected{
 	display: none;
 }
 #status{
 	margin-left: 570px;
+}
+.selected_status{
+	text-align: center;
+	display: inline-block;
 }

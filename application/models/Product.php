@@ -1,4 +1,3 @@
-
 <?php 
 class Product extends CI_Model {
   	
@@ -43,10 +42,9 @@ class Product extends CI_Model {
 
 		$id = get_product_id_by_name($post["name"]);
 		$query2 = "INSERT INTO products_has_categories (product_id, category_id) values (?, ?)";
-		$values2 = array($id["id"], );
+		$values2 = array($id["id"]);
 		//********!!!!!!!!!!!! COME BACK AND FINISH!!!!!!!!!!!!!!*************************************!!!!!!!!!!!!!!!!!!!!!************
 	}
-
 	public function delete_product($id)
 	{
 		$query = "DELETE FROM products WHERE id=?";
@@ -54,10 +52,16 @@ class Product extends CI_Model {
 		return $this->db->query($query,$values);
 	}
 	//*********QUERY FOR PAGINATION-DAY**********
-	public function get_page($num)
+	public function get_page_products($num)
 	{
-		$offset =($num-1)*3;
-		$query = "SELECT * FROM products LIMIT 3 OFFSET ". $offset;
+		$offset =($num-1)*6;
+		$query = "SELECT * FROM products LIMIT 6 OFFSET ". $offset;
+		return $this->db->query($query)->result_array();
+	}
+	public function get_page_main($num)
+	{
+		$offset =($num-1)*10;
+		$query = "SELECT * FROM products LIMIT 10 OFFSET ". $offset;
 		return $this->db->query($query)->result_array();
 	}
 	//*********END OF QUERY FOR PAGINATION-DAY**********

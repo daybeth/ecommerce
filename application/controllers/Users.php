@@ -7,6 +7,8 @@ class Users extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->model("User");
+		$this->load->model("Product");
+		$this->load->model("Order");
 	}
 
 	public function index()
@@ -44,6 +46,34 @@ class Users extends CI_Controller{
 			redirect("/");
 		}
 	}
+	public function admin()
+	{
+		$this->load->view("adminlogin");
+	}	
+	public function admincheck()
+	{
+		$result = $this->User->admincheck($this->input->post());
+		if($result == "Access Denied")
+		{
+			$this->session->set_flashdata("errors", $result);
+			redirect("/users/admin");			
+		}
+		else
+		{
+			$this->session->set_userdata("Admin", $result);
+			redirect("/users/admin_orders");
+		}
+	}
+	public function admin_orders()
+	{
+		$orders = $this->Order->get_all_orders();
+		$this->load->view("dashboard_orders", ["orders" => $orders]);
+	}
+	public function admin_products()
+	{
+		$products = ["products"=>$this->Product->get_all_products()];
+		$this->load->view("dashboard_products",$products);
+	} 
 }
 
 

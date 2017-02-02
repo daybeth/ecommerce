@@ -1,4 +1,5 @@
 *{
+<<<<<<< HEAD
 	padding: 0;
 	margin: 0;
 }
@@ -37,3 +38,43 @@ body{
 	height: 100px;
 	margin-right: 10px;
 }
+=======
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: arial;
+    padding: 20px;
+}
+#main_product{
+    width: 30%;
+    border: 1px solid black;
+    height: 400px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+#main_content{
+    width: 50%;
+    border: 1px solid black;
+    height: 400px;
+    display: inline-block;
+    margin-left: 20px;
+    padding: 10px;
+}
+#botton_box{
+    border: 1px solid black;
+    width: 85%;
+    height: 200px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.similar_item_image{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    width: 10%;
+    height: 100px;
+    margin-right: 10px;
+}
+>>>>>>> 1e888f54cf2e1037f4e17d589f0f6bee1b554390
