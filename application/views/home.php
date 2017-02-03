@@ -12,33 +12,26 @@
 	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
 	  </ol>
 	 
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner">
 	    <div class="item active">
-	      <a href="/users/admin"><img class="img-responsive center-block" src="/assets/images/nikemain.jpg" alt="..."></a>
+	      <a href="/products"><img class="img-responsive center-block" src="/assets/images/nikemain.jpg" alt="..."></a>
 	      <div class="carousel-caption">
-	      	<h1>SHOP OUR FEATURED BRANDS</h1>
+	      	<h1>SEE PRODUCTS</h1>
 	      </div>
 	    </div>
 	    <div class="item">
-	      <img class="img-responsive center-block" src="/assets/images/nikemain.jpg" alt="...">
+	      <a href="/users/register"><img class="img-responsive center-block" src="/assets/images/creativemain.jpg" alt="..."></a>
 	      <div class="carousel-caption">
-	      	<h1>NIKE</h1>
+	      	<h1>JOIN NOW TO START SHOPPING</h1>
 	      </div>
 	    </div>
 	    <div class="item">
-	      <img class="img-responsive center-block" src="/assets/images/yeezymain.jpg" alt="...">
+	      <a href="/users/signin"><img class="img-responsive center-block" src="/assets/images/yeezymain.jpg" alt="..."></a>
 	      <div class="carousel-caption">
-	      	<h1>YEEZY</h1>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <img class="img-responsive center-block" src="/assets/images/creativemain.jpg" alt="...">
-	      <div class="carousel-caption">
-	      	<h1>CREATIVE RECREATION</h1>
+	      	<h1>ALREADY A MEMBER? LOGIN</h1>
 	      </div>
 	    </div>
 	  </div>

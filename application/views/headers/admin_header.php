@@ -22,9 +22,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/orders/index">Orders<span class="sr-only">(current)</span></a></li>
+        <li><a href="/orders/index">Orders<span class="sr-only">(current)</span></a></li>
         <li><a href="/users/admin_products">Products</a></li>
-        <li><a href="/sessions/logoff">Log off</a></li>
+        <li><a class=" navbar-right" href="/sessions/logoff">Log off</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

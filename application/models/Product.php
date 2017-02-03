@@ -7,7 +7,12 @@ class Product extends CI_Model {
 		return $this->db->query($query)->result_array();
 		
 	}
-
+	public function get_all_categories()
+	{
+		$query = "SELECT * FROM categories";
+		return $this->db->query($query)->result_array();
+		
+	}
 	public function get_product_by_id($id)
 	{
 		$query = "SELECT * FROM products WHERE id=?";
@@ -23,6 +28,18 @@ class Product extends CI_Model {
 	//this is a left join, so you get categories that are not related to the product in the table
 	public function get_product_categories_by_id($id){
 		$query="SELECT * FROM categories LEFT JOIN".
+		" Products_has_Categories ON Products_has_Categories.Category_id = categories.id" .
+		" AND products_has_categories.Product_id = ?";
+		$value=array($id);
+		return $this->db->query($query,$value)->result_array();
+	}
+	public function ajax_products($id){
+		$query="SELECT products.name, products.price FROM categories JOIN products_has_categories ON categories.id = products_has_categories.category_id JOIN products ON products.id = products_has_categories.product_id WHERE categories.id = ?";
+		//$query = "SELECT * FROM categories JOIN products_has_categories ON products_has_categories.Category_id = categories.id JOIN products ON products.id=products_has_categories.Product_id WHERE categories.id = ?";
+		return $this->db->query($query,array($id))->result_array();
+	}
+	public function get_product_categories_by_id_main($id){
+		$query="SELECT * FROM categories JOIN".
 		" Products_has_Categories ON Products_has_Categories.Category_id = categories.id" .
 		" AND products_has_categories.Product_id = ?";
 		$value=array($id);

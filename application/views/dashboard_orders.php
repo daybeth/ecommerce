@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<?php if(!$this->session->Admin['id'] == 1){redirect("/users");} ?>
 <?php $this->load->view('/headers/admin_header') ?> 
 <div class="container">
 	<div id="search_bar">
