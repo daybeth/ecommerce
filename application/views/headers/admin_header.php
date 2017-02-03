@@ -24,15 +24,8 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/orders/index">Orders<span class="sr-only">(current)</span></a></li>
         <li><a href="/products/index">Products</a></li>
-
+        <li><a href="/sessions/logoff">Log off</a></li>
       </ul>
-      <form class="navbar-form navbar-right" role="search" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default navbar-btn">Submit</button>
-      </form>
-      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

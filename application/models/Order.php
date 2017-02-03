@@ -38,4 +38,5 @@ class Order extends CI_Model {
 		return $this->db->query($query)->result_array();
 	}
 	//*********END OF QUERY FOR PAGINATION-DAY**********
+
 }

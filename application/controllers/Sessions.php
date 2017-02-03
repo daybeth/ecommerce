@@ -5,7 +5,7 @@ class Sessions extends CI_Controller{
 	
 	public function index()
 	{
-		$this->load->view("/headers/users_header");
+		$this->load->view("/dashboard_orders");
 	}
 	public function home()
 	{
@@ -15,5 +15,6 @@ class Sessions extends CI_Controller{
 	{
 		$this->load->view("main");
 	}
+
 }
 
