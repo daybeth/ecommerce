@@ -38,12 +38,16 @@
 			<input type="text" name="new_category" id="new_category" class="input"><br>
 			<label for="price">Price</label>
 			<input type="float" name="price"  id="price" class="input" value="<?=$product['price']?>"><br>
-			<label for="images">Images</label>
-			<input type="submit" value="Upload" name="upload" class="button"><br>
 			<input type="submit" value="Cancel" name="cancel" class="button">
 			<input type="submit" value="Preview" name="preview" class="button">
 			<input type="submit" value="Update" name="update" class="button">
 		</form>
+		<?php echo form_open_multipart("/products/image_upload/{$product['id']}"); ?>
+		    Select image to upload:
+		    <input type="file" name="fileToUpload" id="fileToUpload">
+		    <input type="submit" value="Upload Image" name="submit">
+		</form>
+<?= 	$this->session->userdata('errors'); ?>
 	</div>
 </body>
 </html>
