@@ -14,10 +14,18 @@ body{
     padding: 10px;
     border:1px solid black;
 }
-#main_content{
+.productDiv {
+    width: 220px;
+    height: 270px;
     display: inline-block;
     vertical-align: top;
-    width: 70%;
-    padding: 10px;
-    border:1px solid black;
+}
+#row {
+    width: 300px;
+    display: inline-block;
+}
+#allProducts{
+    display: inline-block;
+    width:700px;
+    vertical-align: top;
 }

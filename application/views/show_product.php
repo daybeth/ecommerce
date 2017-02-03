@@ -10,8 +10,7 @@
     <p><a href="/"> Go Back</a></p>
     <div id="main_product">
         <h2><?= $product["name"] ?></h2>
-        <p>MAIN IMAGE</p>
-        <p>IMAGES</p>
+        <img src="/assets/images/<?= $product['id']. '.jpeg' ?>">
     </div>
     <div id="main_content">
         <p><?= $product["description"] ?></p>

@@ -12,16 +12,10 @@
 
 </head>
 <body>
+<?php if(!$this->session->Admin['id'] == 1){redirect("/users");} ?>
 <?php $this->load->view('/headers/admin_header') ?> 
 <div class="container">
 	<div id="search_bar">
-		<form class="navbar-form navbar-left" role="search" method="post">
-	        <div class="form-group">
-	        	<input type="text" class="form-control" name="search" placeholder="Search">
-	        	 <ul id="finalResult"></ul>
-	        </div>
-		    <button type="submit" class="btn btn-default navbar-btn">Submit</button>
-      	</form>
 		<select name="status" id="status">
 			<option class="selected" selected="selected" value="0">Show All</option>
 			<option value="shipped">In Process</option>

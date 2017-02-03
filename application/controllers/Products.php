@@ -8,26 +8,15 @@ class Products extends CI_Controller {
 	}
 	public function index()
 	{
+		$products = $this->Product->get_all_products();
 		$categories = $this->Product->get_all_categories();
-		$this->load->view('main',[ "categories"=>$categories]);
+		$this->load->view('main',[ "categories"=>$categories, "products" => $products]);
 	}
 	public function update_product_by_id($id){
 		if($this->input->post('update')){
 			$this->Product->update_product_by_id($this->input->post(),$id);
 		}
 		redirect('/users/admin_products');
-	}
-
-
-	public function get_product_categories_by_id_main($id){
-		$categories=$this->Product->get_product_categories_by_id_main($id);
-		header('Content-Type: application/json');
-		echo json_encode($categories);
-	}
-	public function ajaxproducts($id){
-		$ajaxproducts=$this->Product->ajax_products($id);
-		header('Content-Type: application/json');
-		echo json_encode($ajaxproducts);
 	}
 
 	//*********CONTROLLERS FOR PAGINATION-DAY**********
@@ -61,8 +50,16 @@ class Products extends CI_Controller {
 		$product = $this->Product->get_product_by_id($id);
 		$this->load->view('show_product', ["product" => $product]);
 	}
-	public function image_upload($id){
-				$config['upload_path']          = './assets/images/';
+	public function image_upload($id)
+	{
+				$uploadpath = './assets/images/'.$id;
+
+				if(!file_exists($uploadpath))
+				{
+					$new = mkdir($uploadpath, 0777);
+				}
+
+				$config['upload_path']          = $uploadpath;
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 99999;
                 $config['max_width']            = 99999;
@@ -71,13 +68,12 @@ class Products extends CI_Controller {
 
                 if ( ! $this->upload->do_upload('fileToUpload'))
                 {
-                        $error = $this->session->set_userdata('errors', $this->upload->display_errors());
+                        $error = $this->session->set_flashdata('errors', $this->upload->display_errors());
                         redirect("/products/edit_product/$id");
                 }
                 else
                 {
                         $data = array('upload_data' => $this->upload->data());
-                        $this->session->set_userdata('errors','');
                         redirect("/products/edit_product/$id");
                 }
 	}

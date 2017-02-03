@@ -22,8 +22,8 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class=""><a href="/sessions/home">Home<span class="sr-only">(current)</span></a></li>
-	        <li><a href="/sessions/products">Products</a></li>
+	        <li class=""><a href="/sessions">Home<span class="sr-only">(current)</span></a></li>
+	        <li><a href="/products">Products</a></li>
 	      </ul>
 	      <a href="/orders/view_cart"><button type="submit" class="btn btn-default navbar-btn" aria-label="Right Align">
 	   			<span class="glyphicon glyphicon-align-right glyphicon-shopping-cart aria-hidden="true"></span>

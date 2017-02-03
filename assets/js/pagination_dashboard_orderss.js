@@ -14,7 +14,7 @@ $(document).ready(function(){
 			page++;
 		}
 		for(var i=0; i<res.length;i++){
-			$(".tbody").append("<tr><td>"+res[i].id+"</td>"+
+			$(".tbody").append("<tr><td><a href='/orders/show_order/"+res[i].id+"'>"+res[i].id+"</a></td>"+
 									"<td>"+res[i].first_name+" "+res[i].last_name+"</td>"+
 									"<td>"+res[i].date+"</td>"+
 									"<td>"+res[i].shipping_address+"</td>"+

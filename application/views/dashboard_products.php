@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="/assets/js/pagination_dashboard_products.js"></script>
 </head>
 <body>
+<?php if(!$this->session->Admin['id'] == 1){redirect("/users");} ?>
 <?php $this->load->view('/headers/admin_header') ?>
 	<div id="search_bar">
 		<form action="/products/add_product">

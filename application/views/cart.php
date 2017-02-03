@@ -34,7 +34,7 @@
 			</tbody>
 		</table>
 		<h3>Total: $<?= $order_total ?></h3>
-		<form action="/" method="post">
+		<form action="/products" method="post">
 			<input type="submit" value="Continue Shopping" name="continue_button" id="continue_button">
 		</form>
 	</div>
