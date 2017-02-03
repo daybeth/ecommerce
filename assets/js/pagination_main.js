@@ -39,19 +39,19 @@ $(document).ready(function(){
 	// 			}
 	// 		});
 	// 	})
-	// });
-		$(".category").on('click', function(){
-			var id = this.id;
-			var url = "/products/ajaxproducts/"+id;
-			//console.log(id);
-			$.get(url, function(res){
-			// $('.images').html("<img src='/assets/images/shoes4.jpg' alt=''>")
-			console.log(res);
-			//console.log($(this).attr('id'));
-			// alert();
-		//$("#omImg2").attr('src').css('visibility','visible');
-		})
-	},"json");	
+	// // });
+	// 	$(".category").on('click', function(){
+	// 		var id = this.id;
+	// 		var url = "/products/ajaxproducts/"+id;
+	// 		//console.log(id);
+	// 		$.get(url, function(res){
+	// 		// $('.images').html("<img src='/assets/images/shoes4.jpg' alt=''>")
+	// 		console.log(res);
+	// 		//console.log($(this).attr('id'));
+	// 		// alert();
+	// 	//$("#omImg2").attr('src').css('visibility','visible');
+	// 	})
+	// },"json");	
 	
 
 });

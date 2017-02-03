@@ -1,0 +1,12 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+#login{
+
+	font-family: arial;
+	padding:20px 50px ;
+}
+#registration{
+	margin-top: 50px;
+}
