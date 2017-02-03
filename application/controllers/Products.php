@@ -6,16 +6,19 @@ class Products extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Product');
 	}
+	public function index()
+	{
+		$products = $this->Product->get_all_products();
+		$categories = $this->Product->get_all_categories();
+		$this->load->view('main',[ "categories"=>$categories, "products" => $products]);
+	}
 	public function update_product_by_id($id){
 		if($this->input->post('update')){
 			$this->Product->update_product_by_id($this->input->post(),$id);
 		}
 		redirect('/users/admin_products');
 	}
-	public function index()
-	{
-		$this->load->view("/");
-	}
+
 	//*********CONTROLLERS FOR PAGINATION-DAY**********
 	public function get_all_products()
 	{
@@ -47,8 +50,16 @@ class Products extends CI_Controller {
 		$product = $this->Product->get_product_by_id($id);
 		$this->load->view('show_product', ["product" => $product]);
 	}
-	public function image_upload($id){
-				$config['upload_path']          = './assets/images/';
+	public function image_upload($id)
+	{
+				$uploadpath = './assets/images/'.$id;
+
+				if(!file_exists($uploadpath))
+				{
+					$new = mkdir($uploadpath, 0777);
+				}
+
+				$config['upload_path']          = $uploadpath;
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 99999;
                 $config['max_width']            = 99999;
@@ -57,13 +68,12 @@ class Products extends CI_Controller {
 
                 if ( ! $this->upload->do_upload('fileToUpload'))
                 {
-                        $error = $this->session->set_userdata('errors', $this->upload->display_errors());
+                        $error = $this->session->set_flashdata('errors', $this->upload->display_errors());
                         redirect("/products/edit_product/$id");
                 }
                 else
                 {
                         $data = array('upload_data' => $this->upload->data());
-                        $this->session->set_userdata('errors','');
                         redirect("/products/edit_product/$id");
                 }
 	}

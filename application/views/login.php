@@ -9,18 +9,31 @@
 <script type="text/javascript" src="assets/JS/js/bootstrap.js"></script>
 </head>
 <body>
-<?php $this->load->view('/headers/users_header') ?>
+<?php $this->load->view('/headers/login_header') ?>
 	<div id="login">
 		<h2>Log In</h2>
-		<h3>Registered customers</h3>
-		<form action="/users/login" method="post">
-			<label for="email">Email</label><br>
-			<input type="email" name="email" id="email" class="input"><br>
-			<label for="password">Password</label><br>
-			<input type="password" name="password" id="password"  class="input"><br>
-			<input type="submit" value="Login" id="login_button">
-		</form>
-	</div>
+		<h3 >Registered customers</h3>
+
+	<form class="form-horizontal" action="/users/login" method="post">
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label" class="text-center">Email</label>
+	    <div class="col-sm-4">
+	      <input  name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+	    <div class="col-sm-4">
+	      <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-default">Sign in</button>
+	    </div>
+	  </div>
+	</form>
+<?= $this->session->flashdata("errors") ?>
 	<div id="registration">
 		<h2>Create an Account</h2>
 		<p>Register with XXXXXXX.com to enjoy personalized services, including:</p>
@@ -28,10 +41,13 @@
 			<li>Online Order Status</li>
 			<li>Exclusive Emails</li>
 		</ul>
-		<form action="/users/" method="post">
-			<input type="submit" value="Create an Account" id="create_button">
-		</form>
-	</div>
-	
+		<form class="form-horizontal" action="/users/register" method="post">
+		  	<div class="form-group">
+	   			<div class="col-sm-offset-2 col-sm-10">
+	      			<button type="submit" class="btn btn-default">Create an Account</button>
+	   		 	</div>
+	 		</div>
+ 		</form>
+ 	 </div>
 </body>
 </html>

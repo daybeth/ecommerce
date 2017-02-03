@@ -16,12 +16,14 @@ class Carts extends CI_Controller{
 		if(!$this->session->Cart)
 		{
 			$this->session->set_userdata("Cart", array($add_to_cart));
+			redirect("/orders/view_cart");
 		}
 		else
 		{
 			$array1 = $this->session->Cart;
 			$array1[] = $add_to_cart;
 			$this->session->set_userdata("Cart", $array1);
+			redirect("/orders/view_cart");
 		}
 	}
 }

@@ -48,7 +48,7 @@
 		    <input type="file" name="fileToUpload" id="fileToUpload">
 		    <input type="submit" value="Upload Image" name="submit">
 		</form>
-<?= 	$this->session->userdata('errors'); ?>
+<?= 	$this->session->flashdata('errors'); ?>
 	</div>
 </body>
 </html>

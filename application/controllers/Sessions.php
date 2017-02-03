@@ -7,13 +7,15 @@ class Sessions extends CI_Controller{
 	{
 		$this->load->view("home");
 	}
-	public function home()
+	// public function home()
+	// {
+	// 	$this->load->view("home");
+	// }
+
+	public function logoff()
 	{
-		$this->load->view("home");
-	}
-	public function products()
-	{
-		$this->load->view("main");
+		$this->session->sess_destroy();
+		redirect("/users");
 	}
 
 }

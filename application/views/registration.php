@@ -6,22 +6,46 @@
 	<title>Document</title>
 </head>
 <body>
-<?php $this->load->view('/headers/users_header') ?>
-	<div id="login">
+<?php $this->load->view('/headers/home_header') ?>
+	<div id="registration">
 		<h3>Create an account</h3>
-		<form action="/users/register" method="post">
-			<label for="username">First Name</label><br>
-			<input type="text" name="first_name" id="username" class="input"><br>
-			<label for="username">Last Name</label><br>
-			<input type="text" name="last_name" id="username" class="input"><br>			
-			<label for="email">Email</label><br>
-			<input type="email" name="email" id="email" class="input"><br>
-			<label for="password">Password</label><br>
-			<input type="password" name="password" id="password" class="input"><br>
-			<label for="confirm_password">Confirm Password</label><br>
-			<input type="password" name="confirm_password" id="confirm_password" class="input"><br>
-			<input type="submit" value="Create" id="create_button">
-		</form>
+		<form class="form-horizontal" action="/users/register" method="post">
+		 <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-4 control-label" class="text-center">First Name</label>
+	    <div class="col-sm-4">
+	      <input  name="first_name" type="text" class="form-control" id="inputEmail3" placeholder="First Name">
+	    </div>
+	    </div>
+	   <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-4 control-label" class="text-center">Last Name</label>
+	    <div class="col-sm-4">
+	      <input  name="last_name" type="text" class="form-control" id="inputEmail3" placeholder="Last Name">
+	    </div>
+	    </div>
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-4 control-label" class="text-center">Email</label>
+	    <div class="col-sm-4">
+	      <input  name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+	    <div class="col-sm-4">
+	      <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-4 control-label">Confirm assword</label>
+	    <div class="col-sm-4">
+	      <input name="confirm_password" type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-default">Create Account</button>
+	    </div>
+	  </div>
+	</form>
 <?= $this->session->flashdata("errors") ?>
 		<p>Have an account already?<a href="/users/signin"> Sign In</a></p>
 	</div>

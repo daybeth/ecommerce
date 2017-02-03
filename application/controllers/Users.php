@@ -40,12 +40,12 @@ class Users extends CI_Controller{
 		if($result == "Invalid Email or Password")
 		{
 			$this->session->set_flashdata("errors", $result);
-			redirect("/");			
+			redirect("/users/signin");			
 		}
 		else
 		{
 			$this->session->set_userdata("User", $result);
-			redirect("/");
+			redirect("/products");
 		}
 	}
 	public function admin()
