@@ -55,7 +55,7 @@ class Users extends CI_Controller{
 		$result = $this->User->admincheck($this->input->post());
 		if($result == "Access Denied")
 		{
-			$this->session->set_flashdata("errors", $result);
+			$this->session->set_flashdata("errors", "Access Denied");
 			redirect("/users/admin");			
 		}
 		else

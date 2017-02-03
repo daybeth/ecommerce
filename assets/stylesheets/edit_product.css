@@ -17,6 +17,9 @@ body{
     height: 20px;
     width: 230px;
 }
+#categorieslabel{
+	clear: both;
+}
 textarea{
 	margin: 5px 0px 5px;
 }
