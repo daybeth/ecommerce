@@ -31,7 +31,19 @@ class Orders extends CI_Controller {
 		header('Content-Type: application/json');
 		echo json_encode($orders);
 	}
-
 	//*********END OF CONTROLLERS FOR PAGINATION-DAY**********
-	
+	public function view_cart()
+	{
+		$cart = $this->session->Cart;
+		$this->load->view("cart", ["cart" => $cart]);
+	}
+	public function process_order()
+	{
+		$user = $this->session->User;
+		$cart = $this->session->Cart;
+		$post = $this->input->post();
+		$this->Order->create_order($post, $user, $cart);
+		$this->session->unset_userdata("Cart");
+		$this->load->view("test", ["post" => $post, "user" => $user, "cart" => $cart]);
+	}
 }

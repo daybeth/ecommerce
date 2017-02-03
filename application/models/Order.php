@@ -1,17 +1,6 @@
 <?php 
 class Order extends CI_Model {
   
-  	//pass 
-	public function create_order($post,$products,$total){
-		$status = "IN PROCESS";
-		$shipping_address = $post['shipping_address'] . " " . $post['shipping_city'] . " " . $post['shipping_state'] . " " . $post['shipping_zipcode'];
-		$billing_address = $post['billing_address'] . " " . $post['billing_city'] . " " . $post['billing_state'] . " " . $post['billing_zipcode'];
-		$shipping_name = $post['shipping_first_name'] . " " . $post['shipping_last_name'];
-		$billing_name = $post['billing_first_name'] . " " . $post['billing_last_name'];
-		$query = "INSERT INTO orders(status, total, date, shipping_address, billing_address, user_id, shipping_name, billing_name) VALUES(?,?,NOW(),?,?,?,?,?)";
-		$values=array($status, $post['total'], $shipping_address, $billing_address, $user_id, $shipping_name, $billing_name);
-		$this->db->query($query,$values);
-	}
 
 	public function get_all_orders()
 	{
@@ -39,4 +28,30 @@ class Order extends CI_Model {
 	}
 	//*********END OF QUERY FOR PAGINATION-DAY**********
 
+	public function get_id_for_new_order()
+	{
+		$query = "SELECT orders.id FROM orders WHERE total = ? AND ";
+		$values = array($id);
+		return $this->db->query($query, $values)->row_array();		
+	}
+	public function create_order($post, $user, $cart){
+		$status = "in process";
+		$id = $user["id"];
+		$total = str_replace('"', '', $post['order_total']);
+		$shipping_address = $post['shipping_address'] . " " . $post['shipping_city'] . " " . $post['shipping_state'] . " " . $post['shipping_zipcode'];
+		$billing_address = $post['billing_address'] . " " . $post['billing_city'] . " " . $post['billing_state'] . " " . $post['billing_zipcode'];
+		$shipping_name = $post['shipping_first_name'] . " " . $post['shipping_last_name'];
+		$billing_name = $post['billing_first_name'] . " " . $post['billing_last_name'];
+
+		$query = "INSERT INTO orders(status, total, date, shipping_address, billing_address, user_id, shipping_name, billing_name) VALUES(?,?,NOW(),?,?,?,?,?)";
+		$values=array($status, $total, $shipping_address, $billing_address, $id, $shipping_name, $billing_name);
+		$this->db->query($query,$values);
+
+		$order_id = $this->db->insert_id();
+			for ($i=0; $i < COUNT($cart); $i++) { 
+				$query2 = "INSERT INTO orders_has_products (order_id, product_id, product_quantity) VALUES (?, ?, ?)";
+				$values2 = array($order_id, $cart[$i]["id"], $cart[$i]["quantity"]);
+				$this->db->query($query2, $values2);
+			}
+	}
 }

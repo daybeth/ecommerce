@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Products extends CI_Controller {
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -9,7 +10,7 @@ class Products extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view("dashboard_products");
+		$this->load->view("main");
 	}
 	//*********CONTROLLERS FOR PAGINATION-DAY**********
 	public function get_all_products()
@@ -39,6 +40,7 @@ class Products extends CI_Controller {
 	}
 	public function show($id)
 	{
-		$this->load->view('show_product');
+		$product = $this->Product->get_product_by_id($id);
+		$this->load->view('show_product', ["product" => $product]);
 	}
 }

@@ -21,11 +21,13 @@ class Users extends CI_Controller{
 		if($validation == "valid")
 		{
 			$this->User->register($this->input->post());
+			$this->User->login($this->input->post());
+			redirect('/sessions/products');
 		}
 		else
 		{
 			$this->session->set_flashdata("errors", $validation);
-			redirect("/");
+			redirect("/users");
 		}
 	}
 	public function signin()

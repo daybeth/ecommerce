@@ -22,6 +22,7 @@
 			<input type="password" name="confirm_password" id="confirm_password" class="input"><br>
 			<input type="submit" value="Create" id="create_button">
 		</form>
+<?= $this->session->flashdata("errors") ?>
 		<p>Have an account already?<a href="/users/signin"> Sign In</a></p>
 	</div>
 </body>
