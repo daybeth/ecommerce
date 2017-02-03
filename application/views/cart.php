@@ -6,6 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
+<?php $this->load->view('/headers/users_header') ?>
 	<div id="shopping_cart">
 		<h1>Shopping Cart</h1>
 		<table>

@@ -6,10 +6,14 @@ $(document).ready(function(){
 		var page = 1;
 
 		while(page <= num_pages){
-			$('.pages').append("<a href='#'>"+page+"</a> | ");
+				$('.pages').append("<nav aria-label='Page navigation'><ul class='pagination'>"+
+					    "<li><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>"+
+					    "<li><a class='page_link' href='#'>"+page+"</a></li>"+
+					    "<li><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>"+
+				    "</ul></nav>");
 			page++;
 		}
-		for(var i=0; i<6;i++){
+		for(var i=0; i<res.length; i++){
 			$(".tbody").append("<tr><td>"+res[i].picture+"</td>"+
 									"<td>"+res[i].id+"</td>"+
 									"<td>"+res[i].name+"</td>"+
@@ -17,7 +21,7 @@ $(document).ready(function(){
 									"<td>"+res[i].quantity_sold+"</td>"+
 									"<td></td></tr>");
 		}
-		$('a').click(function(){
+		$('page_link').click(function(){
 			var page_num = $(this).text();
 			console.log(page_num);
 			var url = "/products/get_page_products/"+page_num;

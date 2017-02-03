@@ -9,6 +9,7 @@
    
 </head>
 <body>
+<?php $this->load->view('/headers/users_header') ?>
     <div id="nav_bar">
         SEARCH BAR
         <h2>Categories</h2>

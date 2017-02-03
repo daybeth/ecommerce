@@ -6,6 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
+<?php $this->load->view('/headers/admin_header') ?>
 	<div id="left_info">
 		<h3>Order ID <?= $order["id"] ?></h3>
 		<h4>Customer shipping info:</h4>

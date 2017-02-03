@@ -10,7 +10,7 @@ class Orders extends CI_Controller {
 	}
 	public function index()
 	{
-	
+	$this->load->view('dashboard_orders');
 	}
 	public function show_order($id)
 	{
@@ -34,4 +34,3 @@ class Orders extends CI_Controller {
 
 	//*********END OF CONTROLLERS FOR PAGINATION-DAY**********
 	
-}

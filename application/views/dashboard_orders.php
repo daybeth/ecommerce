@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 		<title>Document</title>
 	<link rel="stylesheet" href="/assets/stylesheets/dashboard_orderss.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/js/pagination_dashboard_orders.js"></script>
 
 </head>
 <body>
+<?php $this->load->view('/headers/admin_header') ?>
 	<div id="search_bar">
-		Missing search bar
 		<select name="status" id="status">
 			<option class="selected" selected="selected" value="0">Show All</option>
 			<option value="shipped">In Process</option>

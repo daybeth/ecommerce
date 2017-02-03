@@ -6,7 +6,11 @@ $(document).ready(function(){
 		var page = 1;
 
 		while(page <= num_pages){
-			$('.pages').append("<a href='#'>"+page+"</a> | ");
+			$('.pages').append("<nav aria-label='Page navigation'><ul class='pagination'>"+
+					    "<li><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>"+
+					    "<li><a class='page_link' href='#'>"+page+"</a></li>"+
+					    "<li><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>"+
+				    "</ul></nav>");
 			page++;
 		}
 		for(var i=0; i<res.length;i++){
@@ -21,7 +25,7 @@ $(document).ready(function(){
 											"<option value='in_process'>In Process</option>"+
 										"</select></td></tr>");
 		}
-		$('a').click(function(){
+		$('.page_link').click(function(){
 			var page_num = $(this).text();
 			console.log(page_num);
 			var url = "/orders/get_page_orders/"+page_num;

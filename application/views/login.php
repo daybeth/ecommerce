@@ -9,6 +9,7 @@
 <script type="text/javascript" src="assets/JS/js/bootstrap.js"></script>
 </head>
 <body>
+<?php $this->load->view('/headers/users_header') ?>
 	<div id="login">
 		<h2>Log In</h2>
 		<h3>Registered customers</h3>

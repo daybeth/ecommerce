@@ -6,6 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
+<?php $this->load->view('/headers/users_header') ?>
 	<div id="login">
 		<h3>Create an account</h3>
 		<form action="/users/register" method="post">

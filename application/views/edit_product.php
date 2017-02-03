@@ -6,6 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
+<?php $this->load->view('/headers/admin_header') ?>
 	<div id="edit_product">
 		<h2>Edit Product - ID XXXX</h2>
 		<form action="/products/edit_product" method="post">

@@ -6,11 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
-	<p><a href="/"> Go Back</a></p>
-=======
+<?php $this->load->view('/headers/users_header') ?>
     <p><a href="/"> Go Back</a></p>
->>>>>>> 1e888f54cf2e1037f4e17d589f0f6bee1b554390
     <div id="main_product">
         <h2>PRODUCT NAME</h2>
         <p>MAIN IMAGE</p>
@@ -20,7 +17,6 @@
         <p>DESCRIPTION</p>
         <strong>Quantity</strong>
         <select name="quantity" id="quantity">
-<<<<<<< HEAD
         	<option value="one">1</option>
         	<option value="two">2</option>
         	<option value="three">3</option>
