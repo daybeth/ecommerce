@@ -5,16 +5,13 @@ class Sessions extends CI_Controller{
 	
 	public function index()
 	{
-		$this->load->view("home");
+		$this->load->view("dashboard_products");
 	}
 	public function home()
 	{
 		$this->load->view("home");
 	}
-	public function products()
-	{
-		$this->load->view("main");
-	}
+
 
 }
 

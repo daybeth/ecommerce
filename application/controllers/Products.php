@@ -6,16 +6,30 @@ class Products extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Product');
 	}
+	public function index()
+	{
+		$categories = $this->Product->get_all_categories();
+		$this->load->view('main',[ "categories"=>$categories]);
+	}
 	public function update_product_by_id($id){
 		if($this->input->post('update')){
 			$this->Product->update_product_by_id($this->input->post(),$id);
 		}
 		redirect('/users/admin_products');
 	}
-	public function index()
-	{
-		$this->load->view("/");
+
+
+	public function get_product_categories_by_id_main($id){
+		$categories=$this->Product->get_product_categories_by_id_main($id);
+		header('Content-Type: application/json');
+		echo json_encode($categories);
 	}
+	public function ajaxproducts($id){
+		$ajaxproducts=$this->Product->ajax_products($id);
+		header('Content-Type: application/json');
+		echo json_encode($ajaxproducts);
+	}
+
 	//*********CONTROLLERS FOR PAGINATION-DAY**********
 	public function get_all_products()
 	{
