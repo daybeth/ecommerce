@@ -25,10 +25,9 @@
 			<th class="column4">Action</th>
 		</thead>
 		<tbody class="tbody">
-
-
 		</tbody>
 	</table>
+	
 	<div class="pages"></div>
 
 </body> 

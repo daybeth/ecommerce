@@ -33,7 +33,7 @@
 						<td><?= $qty["Product_id"] ?></td>
 						<td><?= $qty["name"] ?></td>
 						<td>$<?= $qty["price"] ?></td>
-						<td><?= $qty["Product_quantity"] ?></td>
+						<td><?= $qty["product_quantity"] ?></td>
 						<td><?= $order["id"] ?></td>
 					</tr>
 <?php

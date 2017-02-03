@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	$.get("/products/get_all_products", function(res){
 		console.log(res);	
-		var num_pages = Math.ceil(res.length/6);
+		var num_pages = Math.ceil(res.length/3);
 		var page = 1;
 
 		while(page <= num_pages){
@@ -19,7 +19,8 @@ $(document).ready(function(){
 									"<td>"+res[i].name+"</td>"+
 									"<td>"+res[i].inventory_count+"</td>"+
 									"<td>"+res[i].quantity_sold+"</td>"+
-									"<td></td></tr>");
+									"<td><a href='/products/edit_product/"+res[i].id+"'>Edit </a>"+
+										"<a href='/products/delete_product/"+res[i].id+"'> Delete</a></td></tr>");
 		}
 		$('page_link').click(function(){
 			var page_num = $(this).text();
@@ -39,7 +40,8 @@ $(document).ready(function(){
 											"<td>"+res[i].name+"</td>"+
 											"<td>"+res[i].inventory_count+"</td>"+
 											"<td>"+res[i].quantity_sold+"</td>"+
-											"<td></td></tr>");
+											"<td><a href='/products/edit_product/"+res[i].id+"'>Edit </a>"+
+												"<a href='/products/delete_product/"+res[i].id+"'> Delete</a></td></tr>");
 				}
 			});
 		})

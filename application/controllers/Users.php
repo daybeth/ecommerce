@@ -50,14 +50,14 @@ class Users extends CI_Controller{
 	}
 	public function admin()
 	{
-		$this->load->view("adminlogin");
+		$this->load->view("admin_login");
 	}	
 	public function admincheck()
 	{
 		$result = $this->User->admincheck($this->input->post());
 		if($result == "Access Denied")
 		{
-			$this->session->set_flashdata("errors", $result);
+			$this->session->set_flashdata("errors", "Access Denied");
 			redirect("/users/admin");			
 		}
 		else

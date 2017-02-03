@@ -20,11 +20,31 @@ class Product extends CI_Model {
 		$values = array($name);
 		return $this->db->query($query, $values)->row_array();
 	}
+	//this is a left join, so you get categories that are not related to the product in the table
+	public function get_product_categories_by_id($id){
+		$query="SELECT * FROM categories LEFT JOIN".
+		" Products_has_Categories ON Products_has_Categories.Category_id = categories.id" .
+		" AND products_has_categories.Product_id = ?";
+		$value=array($id);
+		return $this->db->query($query,$value)->result_array();
+	}
 	public function get_all_products_by_category($id)
 	{
 		$query = "SELECT * FROM products JOIN products_has_categories ON products.id = products_has_categories.product_id WHERE products_has_categories.category_id = ?";
 		$values = array($id);
 		return $this->db->query($query, $values)->result_array();
+	}
+	public function update_product_by_id($post, $id){
+		//first delete existing product category relationships
+		$delete_product_categories="DELETE FROM Products_has_Categories WHERE Product_id = ?";
+		$this->db->query($delete_product_categories,array($id));
+		//then recreate relationships based on selected categories
+		$put_products_in_categories = "INSERT INTO Products_has_Categories (Product_id,Category_id) VALUES " . "($id, ?)";
+		if(isset($post['product_categories'])){
+			foreach($post['product_categories'] as $value){
+				$this->db->query($put_products_in_categories,$value);
+			}
+		}
 	}
 	// public function edit_product($post)
 	// {
