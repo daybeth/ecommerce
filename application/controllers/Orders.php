@@ -25,7 +25,6 @@ class Orders extends CI_Controller {
 	}
 	public function process_order()
 	{
-		// $this->session->sess_destroy();
 		$user = $this->session->User;
 		$cart = $this->session->Cart;
 		$post = $this->input->post();

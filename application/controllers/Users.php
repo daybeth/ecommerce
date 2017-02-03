@@ -25,7 +25,7 @@ class Users extends CI_Controller{
 		else
 		{
 			$this->session->set_flashdata("errors", $validation);
-			redirect("/");
+			redirect("/users");
 		}
 	}
 	public function signin()
