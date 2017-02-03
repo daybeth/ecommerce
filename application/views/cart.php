@@ -6,6 +6,9 @@
 	<title>Document</title>
 </head>
 <body>
+<?php 
+	if(!$this->session->Cart){redirect("/products");}
+?>
 	<div id="shopping_cart">
 		<h1>Shopping Cart</h1>
 		<table>
@@ -16,34 +19,31 @@
 				<th class="column">Total</th>
 			</thead>
 			<tbody>
+<?php
+					$order_total = "0";
+				foreach ($cart as $key => $value) {
+					$order_total += $value['total'];
+?>
 				<tr>
-					<td>XXXXXXXXXXXXXXXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-				</tr>
-				<tr>
-					<td>XXXXXXXXXXXXXXXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-				</tr>
-				<tr>
-					<td>XXXXXXXXXXXXXXXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-					<td>XXXXXX</td>
-				</tr>
+					<td><?= $value["name"] ?></td>
+					<td><?= $value["price"] ?></td>
+					<td><?= $value["quantity"] ?></td>
+					<td>$<?= $value["total"] ?></td>
+				</tr>	
+<?php
+				}
+?>
 			</tbody>
 		</table>
-		<h3>Total: XXXXX</h3>
+		<h3>Total: $<?= $order_total ?></h3>
 		<form action="/" method="post">
 			<input type="submit" value="Continue Shopping" name="continue_button" id="continue_button">
 		</form>
 	</div>
 	<div id="user_information">
 		<h2 class="align_left">Shipping Information</h2>
-		<form action="/" method="post">
+		<form action="/orders/process_order" method="post">
+			<input type="hidden" name="order_total" value="<?= $order_total ?>">
 			<label for="shipping_first_name">First Name</label>
 			<input type="text" name="shipping_first_name" id="shipping_first_name" class="input"><br>
 			<label for="shipping_last_name">Last Name</label>
@@ -71,13 +71,15 @@
 			<input type="text" name="billing_state" id="billing_state" class="input"><br>
 			<label for="billing_zipcode">Zipcode</label>
 			<input type="text" name="billing_zipcode" id="billing_zipcode" class="address" class="input"><br>
-			<label for="Card">Card</label>
-			<input type="number" name="Card" id="Card" class="input"><br>
-			<label for="security_code">Security Code</label>
-			<input type="number" name="security_code" id="security_code" class="input"><br>
-			<label for="expiration">Expiration</label>
-			<input type="month" name="expiration" id="expiration" class="input"><br>
-			<input type="submit" value="Pay" name="pay_button" id="pay_button">
+			<script
+			src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			data-key="pk_test_ZtWAitsgZYgwANuGB0a9FG0T"
+			data-amount="<?= str_replace(".", "", $order_total) ?>"
+			data-name="WEBSITENAME"
+			data-description="Enter your card information below."
+			data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+			data-locale="auto">
+			</script>
 		</form>
 	</div>
 </body>

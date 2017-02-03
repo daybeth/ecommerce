@@ -8,20 +8,26 @@
 <body>
     <p><a href="/"> Go Back</a></p>
     <div id="main_product">
-        <h2>PRODUCT NAME</h2>
+        <h2><?= $product["name"] ?></h2>
         <p>MAIN IMAGE</p>
         <p>IMAGES</p>
     </div>
     <div id="main_content">
-        <p>DESCRIPTION</p>
+        <p><?= $product["description"] ?></p>
+        <p>$<?= $product["price"] ?></p>
         <strong>Quantity</strong>
-        <select name="quantity" id="quantity">
-            <option value="one">1</option>
-            <option value="two">2</option>
-            <option value="three">3</option>
-        </select>
-        <form action="/">
-            <input type="submit" value="Buy" id="buy_button">
+        <form action="/carts/add_to_cart" method="post">
+            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+            <input type="hidden" name="name" value="<?= $product['name'] ?>">
+            <input type="hidden" name="price" value="<?= $product['price'] ?>">
+            <select name="quantity" id="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit" value="ADD TO CART" id="buy_button">
         </form>
     </div>
     <div id="botton_box">
